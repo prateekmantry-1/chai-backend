@@ -11,7 +11,15 @@ dotenv.config({
 
 
 
-connectDB();
+connectDB()
+.then(()=>{
+    app.listen(process.env.PORT || 8000, ()=>{
+        console.log(`server is listening on port ${process.env.POR}`);
+    })
+})
+.catch((err)=>{
+    console.log("mondo db connection failed !!!", err);
+})
 
 
 
